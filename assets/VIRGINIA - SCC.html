@@ -1,0 +1,1039 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">    
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,9,10">
+
+
+    <link href="/bundles/css?v=LieaZp_wRedsQnbaJzGNFAEKCzw0TvM-XrZBHw1Gr6g1" rel="stylesheet"/>
+
+    <script src="/bundles/js?v=iEjkFpzRy62kFS9VJgI7SPGTlBFF9akBVxoZq5tZTGA1"></script>
+
+    <script src="/bundles1/js?v=N9WSNZowoCaRLdIB9pMG_RoH2dsyWif2d6W86q57ZC41"></script>
+
+
+    <script src="/bundles/constants?v=PuINp11INC5VMxnHZb3V5J7Jx4NuXSbya-Wnf5jNayg1"></script>
+
+    <script src="/bundles/gcr-corps-scripts?v=aiB6YNm0AFgRSRGXYxt4sEvFEv22rybIyn1JzSeLBlo1"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>VIRGINIA - SCC</title>
+    
+    <style type="text/css">
+        @font-face {
+            font-family: 'Futura-Bold';
+            src: url('../../Themes/VA/fonts/Futura-Bold.woff') format('woff'), url('../../Themes/VA/fonts/Futura-Bold.ttf') format('truetype'), url('../../Themes/VA/fonts/Futura-Bold.otf') format('opentype'), url('../../Themes/VA/fonts/Futura-Bold.eot') format('embedded-opentype');
+        }
+
+
+        @font-face {
+            font-family: 'Nunito-Regular';
+            src: url('../fonts/Nutino/Nunito-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1.layoutHeading {
+            font-family: Nunito-Regular !important;
+        }
+    </style>
+
+    <style>       
+
+        /* Toolbar Positioning */
+        #ada-text-tool {
+            position: fixed;
+            top: 20px;
+            right: 250px;
+            z-index: 9999;
+            background: white;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .resize-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+            .resize-btn:hover {
+                background: #e2e8f0;
+            }
+
+            .resize-btn.active {
+                background: #2563eb;
+                color: white;
+                border-color: #1e40af;
+            }
+
+        .tool-label {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 600;
+            margin-right: 4px;
+            padding-left: 4px;
+        }
+        .gradient-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35); /* adjust 0.35 → 0.45 for stronger contrast */
+            pointer-events: none;
+        }
+        
+    </style>
+    
+
+</head>
+<body>
+
+    
+
+
+    <header class="dash-header navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid gradient-section">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <h1 class="layoutHeading">State Corporation Commission <br /> Clerk&#39;s Information System</h1>
+                </div>
+                <!--<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 user-section">
+        <h6>Hi, John Dheere</h6>
+        <div class="dropdown">
+            <a class="btn btn-link"><img src="images/cart.png" width="40" height="40"></a>
+            <a class="btn btn-link logout-button dropdown-toggle" id="menu1" data-bs-target="dropdown">
+                <img src="images/settings.png" width="25" height="25" alt="Logout">
+                <img src="images/dropdown.png" width="15" height="15" alt="Settings Dropdown">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+            </ul>
+        </div>
+    </div>-->
+                <!-- Text Scaling Tool -->
+               
+            </div>
+        </div>
+    </header>
+    <div class="content-wrapper" style="padding-bottom:50px;">
+        
+        <section class="wrapper">
+            <div id="ada-text-tool" role="region" aria-label="Text Scaling Controls">               
+                <button id="btnAMinus" onclick="updateSize(0.8, 'btnAMinus')" class="resize-btn"  aria-label="A-">A-</button>
+                <button id="btnA" onclick="updateSize(1, 'btnA')" class="resize-btn active"  aria-label="A">A</button>
+                <button id="btnAPlus" onclick="updateSize(1.2, 'btnAPlus')" class="resize-btn"  aria-label="A+">A+</button>
+            </div>
+            
+
+    <div class="margin_adjustment" style="padding-top: 135px;"></div>
+<div class="row" style="">
+    <div class="form-horizontal">
+        <div class="col-xs-12 col-sm-12  col-md-12 page-title mt-1;font_grey entity-header header-back-color font_grey_OnlineReview" style="font-weight: bold;">
+            <span><label class="" id="BusinessSearch_BusinessInformation_lblEntityDetails" style="color:#2B2B2B !important;">Entity Information</label></span>
+        </div>
+    </div>
+</div>
+<div>
+
+    <div class="row">
+        <div class="row">
+            <div class="data_pannel0">
+                <div class="EntitySearch">
+                    <div class="col-md-12 section-title">
+                        Entity Information
+                    </div>
+                        <div class="row">
+
+<div class="row">
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">Entity Name:</div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"> Keepsake Engine LLC</div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"> <label class="" id="BusinessSearch__BusinessEntityDetails_lblBusinessEntityDetails">Entity ID:</label></div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4"> 11944721</div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">Entity Type:</div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"> Limited Liability Company</div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"> Entity Status:</div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4" id="EntityStatus">
+            <strong>
+                <span style="color: #1F7F1F; font-weight: bold">Active</span>
+            </strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">Series LLC:</div>
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"> No</div>
+
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right">Reason for Status:</div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4">
+Active            </div>
+</div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">Formation Date:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+12/24/2025            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right">
+                <a href="#" data-message="Submission of fees, reports, or other filings do not impact the status date. If your business has remained in good standing, then the status date will not change. If your business is placed in a Pending Inactive or Inactive status, the status date will reflect the date these changes occurred." class="statusTooltip">Status Date:</a>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4">
+12/24/2025            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">VA Qualification Date:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 bottom_adjustment status_align">
+12/24/2025            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"> Period of Duration:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4">
+                        <span>Perpetual</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">Industry Code:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+0 - General            </div>
+            
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right">
+                    <a href="#" data-message='Annual reports are required for corporations only. If &quot;N/A&quot;, this business is not required to submit an annual report to the Commission. If &quot;Not Required&quot;, the annual report is not currently due. If a date is shown, then your annual report is currently due. Login to CIS and visit Online Services to submit your annual report online.' class="statusTooltip">Annual Report Due Date:</a>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4">
+                     N/A
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">Jurisdiction:</div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+VA                </div>
+
+
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"> Charter Fee:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4">
+                     N/A
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+
+                <a href="#" data-message='If a date is shown, then your annual registration fee is currently due. Login to CIS and visit &quot;Online Services&quot; to pay your fee. If &quot;Not Required&quot; is displayed, the annual registration fee is not currently due. This business is in good standing with the Commission.' class="statusTooltip">Registration Fee Due Date:</a>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                     Not Required
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right" style="display:none"> Contact Number:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4" style="display:none">
+                     N/A
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right" style="display:none">Email Address:</div>
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3" style="display:none">
+                     N/A
+            </div>
+        </div>
+
+        <style>
+            .statusReason {
+                color: red;
+            }
+
+            .statusTooltip {
+                display: inline;
+                position: relative;
+            }
+
+                .statusTooltip:hover:after {
+                    background: #333;
+                    background: rgba(0,0,0,.8);
+                    border-radius: 5px;
+                    bottom: 26px;
+                    color: #fff;
+                    content: attr(data-message);
+                    left: 20%;
+                    padding: 5px 15px;
+                    position: absolute;
+                    z-index: 98;
+                    width: 300px;
+                }
+
+                .statusTooltip:hover:before {
+                    border: solid;
+                    border-color: #333 transparent;
+                    border-width: 6px 6px 0 6px;
+                    bottom: 20px;
+                    content: "";
+                    left: 50%;
+                    position: absolute;
+                    z-index: 99;
+                }
+        </style>
+
+                        </div>
+                    </div>
+                                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+    
+    <div class="row">
+            <div class="row">
+                <div class="data_pannel0">
+                    <div>
+                        <div class="col-md-12 section-title">
+                            <label class="" id="BusinessSearch_BusinessInformation_lblStatutoryAgentInformation">Registered Agent Information</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">RA Type:</div>
+                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"> Individual</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right">Locality:</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4"> Arlington</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right"> <label class="" id="BusinessRAQualification">RA Qualification</label>:</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"> Member or Manager of the Limited Liability Company</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"></div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right"> Name:</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3"> Joel   Offin</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"> Registered Office Address:</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4 break">
+3444 Fairfax Dr, Arlington, VA, 22201 - 4442, USA                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="row">
+                <div class="data_pannel0">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12 section-title">
+                                <label class="" id="BusinessSearch_BusinessInformation_lblPrincipalOfficeAddress">Principal Office Address</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right"> Address:</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 "> 3444 Fairfax Dr, Arlington, VA, 22201, USA</div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 text-right"></div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="row">
+    </div>
+
+    <div class="row">
+    </div>
+    
+    <div class="row">
+    </div>
+    
+    <div class="row">
+        <div class="row">
+        </div>
+    </div>
+
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="row">
+            <div>
+                <div class="row">
+                    <div class="col-md-12" style="text-align:right">
+                        <input type="button" name="btnSearch" value="Filing History" class="button loading" onclick="submitFilingHistory(11944721)" />
+                            <input type="button" name="btnSearch" value="RA History" class="button loading" onclick="submitAgentHistory(11944721)" />
+                                                    <input type="button" name="btnSearch" value="Name History" class="button loading" onclick="submitFormNameHistory(11944721)" />
+                            <input type="button" name="btnSearch" value="Previous Registrations" class="button loading" onclick="submitPreviousQualifications(11944721)" />
+                                                    <input type="button" name="btnSearch" value="Protected Series" class="button loading" onclick="submitProtectedSeries(11944721)" />
+                                                    <input type="button" name="btnSearch" value="Garnishment Designees" class="button loading" onclick="submitGarnishmentDesignees(11944721)" />
+                            <input type="button" name="btnSearch" value="Image Request" style="margin-top:2%;" class="button loading" onclick="CertifiedCopiesRequest(11944721)" />
+                        
+                        </div>
+                </div>
+
+                <div class="col-md-6" style="text-align:left;width: 50%">
+                    <input type="button" id="btnBack" name="" value="Back" class="button_sec loading" style="text-align: center;padding:4px 5px;" onclick="submitBack()" />
+                    <input type="button" id="btnReturn" name="" value="Return to Search" class="button_sec loading" style="text-align: center;padding:4px 5px;" onclick="GoToSearch()" />
+                    <input type="button" id="btnReturn" name="" value="Return to Results" class="button_sec loading" style="text-align: center;padding:4px 5px;" onclick="GoToSearchedResults()" />
+                    <input type="hidden" id="hdnIsMergerReturn" />
+                    <input type="hidden" id="hdnIsShareExchangeReturn" />
+                    <input type="hidden" id="hdnShowOrHideBackAndReturn" value="FromEntityResult" />
+                </div>
+                    <div class="col-md-6" align="right">
+                        <input class="button" id="Back_To_Login" name="" onclick="BackToLogin()" type="button" value="Back to Login"></input>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+    <div><br /><br /><br /><br /><br /></div>
+
+<link href="/Themes/Formation/styles.css" rel="stylesheet" />
+<link href="/Themes/Default/CSS/images/styles-rep.css" rel="stylesheet" />
+<script type="text/javascript">
+
+    function submitBack() {
+
+        if ($('#hdnIsMergerReturn').val()) {
+            $.submitForm('/Merger/Index', { isBack: true });
+        }
+        else if ($('#hdnIsShareExchangeReturn').val()) {
+            $.submitForm('/ShareExchange/Index', { isBack: true });
+        }
+        else {
+            $.submitForm('/EntitySearch/Index', { isBack: true });
+        }
+    }
+
+    function GoToSearchedResults() {
+        $.submitForm('/EntitySearch/Index', { isBack: true });
+    }
+
+    function submitFilingHistory(id) {
+        $.submitForm('/EntitySearch/BusinessFilings', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitOrderHistory(id) {
+        $.submitForm('/EntitySearch/BusinessOrders', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitFormNameHistory(id) {
+        $.submitForm('/EntitySearch/BusinessNameHistory', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitAssumedNameHistory(id) {
+        $.submitForm('/EntitySearch/BusinessAssumeNameHistory', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitCorrespondenceHistory(id) {
+        $.submitForm('/EntitySearch/BusinessCorrespondences', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitPaymentHistory(id) {
+        $.submitForm('/EntitySearch/BusinessPayments', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitCommentHistory(id) {
+        $.submitForm('/EntitySearch/BusinessCommentsHistory', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitAgentHistory(id) {
+        $.submitForm('/EntitySearch/BusinessAgentHistory', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitPreviousQualifications(id) {
+        $.submitForm('/EntitySearch/BusinessPreviousQualification', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitProtectedSeries(id) {
+        $.submitForm('/EntitySearch/BusinessProtectedSeries', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+    function submitGarnishmentDesignees(id) {
+        $.submitForm('/EntitySearch/BusinessGarnishmentDesignees', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+
+    function CertifiedCopiesRequest(id) {
+        $.submitForm('/EntitySearch/BusinessMissingRequest', { businessId: id, source: $('#hdnShowOrHideBackAndReturn').val() });
+    }
+
+    function GoToSearch() {
+        window.location.href = '/EntitySearch/Index';
+    }
+
+    function BackToLogin() {
+        window.location.href = '/';
+    }
+
+    $(function () {
+        if ($('#hdnIsMergerReturn').val()) {
+            $('#btnReset').hide();
+        }
+        else {
+            $('#btnReset').show();
+        }
+
+        if ($('#hdnShowOrHideBackAndReturn').val() == "FromEntityResult") {
+
+            $('#btnBack, #btnReturn').show();
+        }
+        else {
+            $('#btnBack, #btnReturn').hide();
+        }
+        if ('Limited Liability Company' == 'General Partnership' || 'Limited Liability Company' == 'Limited Partnership') {
+            $('#grid_principalList').find('.clshidesorting').hide();
+        }
+
+        //for accessability fix
+        setTimeout(function () {
+            accessibilityIssueFixes();
+        }, 100);
+
+        accessibilityIssueFixes();
+    });
+
+</script>
+<script>
+    //for paging
+    $xhtml.init({
+        url: '/EntitySearch/BusinessPrincipalsList',
+        sortBy: '',
+        sortType: "a",
+        nodeNum: -1,
+        pageIdx: 1,
+        local: false,
+        headerRowId: "ListRow_xhtml_grid",
+        updateTargetId: "tdPrincipalInformation",
+        data: {
+            BusinessId: function () { return 11944721; },
+        }
+    });
+
+    //for paging
+    var businessincorporators = new XHtmlGrid();
+    businessincorporators.init({
+        url: '/EntitySearch/BusinessIncorporatorsList',
+        sortBy: '',
+        sortType: "a",
+        nodeNum: -1,
+        pageIdx: 1,
+        local: false,
+        headerRowId: "ListRow_xhtml_grid",
+        updateTargetId: "tdIncorporatorsInformation",
+        data: {
+            BusinessId: function () { return 11944721; },
+        }
+    });
+</script>
+<style>
+    .statusReason {
+        color: red;
+    }
+
+    .break {
+        word-wrap: break-word;
+    }
+</style>
+
+
+<script type="text/javascript">
+    $helper = function () {
+        var config = {
+            settings: {
+
+                //Account
+                Login: '/',
+                ValidateToken: '/Account/ValidateToken',
+
+                //PublicNotice
+                GetPublicNoticeSearch: '/PublicNotice/PublicNoticeSearch',
+
+                //Dashboard
+                ToDashboard: '/AzDashboard/Index',
+
+                //MODAccount
+                MakeDeposit: '/MODAccount/MakeDeposit',
+
+                //ShoppingCart
+                GotoPayment: '/ShoppingCart/Checkout',
+                RemoveCartItem: '/ShoppingCart/RemoveCartItem',
+                GetConfirmationDialog: '/ShoppingCart/RenderConfirmationDialog',
+                ValidatePreCheckout: '/ShoppingCart/ValidatePreCheckout',
+
+                //Address Fields Shared View
+                GetCountiesByZipCode: '/Address/GetCountiesByZipCode',
+                GetCityCountyListByZipCode: '/Address/GetCityCountyListByZipCode',
+                GetCityCountyListByState: '/Address/GetCityCountyListByState',
+                IsPinVerificationRequired: 'False',
+                State_VA: 'VA'
+            }
+        };
+        var enums = {
+            Locales: {
+                Countries: {
+                    USA: 'USA',
+                }
+            },
+            enumEntityNameType: {
+                TrueName: '5',
+                TrueNameWithCorporateIdentifier: '7',
+                DesignatedName: '6',
+                LegalName: '2',
+            },
+
+            enumSelectedBusinessType: {
+                CreateBusiness: 'CreateBusiness',
+                NameReservation: 'NameReservation',
+                AnnualReport: 'AnnualReport',
+                ExistingBusiness: 'ExistingBusiness',
+
+            },
+            BusinessFilingTypes: {
+                ArticlesOfAmendment_ForProfit: '6',
+                ArticlesOfAmendment: '16',
+                AnnualReport: '5',
+                Officer_Director_ShareholderChange: '31',
+                ArticlesOfConversion: '21',
+                ArticlesOfCorrection: '18',
+                ArticlesOfDissolution: '19',
+                ArticlesOfDomestication: '20',
+                ArticlesOfMerger: '24',
+                CancellationOfApprovedEntityNameReservation: '50',
+                Reservation: '52',
+                TransferOfReservation: '53',
+                Preclearance: '56',
+                StatementOfChange_KPB_Stat_Agent: '57',
+                StatutoryAgentResignation: '59',
+                StatementOfChange_KPB_Stat_Agent: '57',
+                ArticlesOfRevocationOfDissolution: '28',
+                StatementOfInterestExchange: '69',
+                AffidavitOfPublication: '70',
+                AnnualBenefitReport: '71',
+                AnnualReportExtension: '72',
+                ApplicationForUseOfIndistinguishableName: '73',
+                ArticlesOfAmendment_ShortForIncludedInThis: '74',
+                ArticlesOfAmendment_Nonprofit: '75',
+                ArticlesOfIncorporation_ForProfit: '76',
+                ArticlesOfIncorporation_Nonprofit: '77',
+                ArticlesOfOrg: '78',
+                ArticlesOfOrganization: '25',
+                ArticlesOfTermination: '30',
+                CertificateOfCompliance: '81',
+                CertificateOfDisclosure: '82',
+                CertificateOfElectionToDissolve: '83',
+                CourtOrder: '84',
+                MemoToFile: '85',
+                RestatedArticlesOfIncorporation_ForProfit: '86',
+                RestatedArticlesOfIncorporation_Nonprofit: '87',
+                ServiceOfProcess_LegalDocumentToPublic: '88',
+                ServiceOfProcess_LegalDocumentToThePublic: '89',
+                ServiceOfProcess_LegalDocumentToPublic2: '90',
+                ServiceOfProcess_LegalDocumentToThePublic2: '112',
+                StatementOfAbandoment: '91',
+                StatementOfBankruptcy: '92',
+                StatementOfChange: '51',
+                StatementOfPrincipalOfficeChange: '1064',
+                Statementofdesignationchange: '2244',
+                StatementofDenialforPartnership: '61',
+                RenewalofaStatementofPartnershipAuthority: '49',
+                StatementOfChange_Member_Manager: '94',
+                StatementOfDivision: '95',
+                StatementOfIneffectiveness: '96',
+                StatementPursuantTo_10_602: '97',
+                SuretyBond: '98',
+                SuretyBondCancellation: '99',
+                ApplicationForAuthority: '100',
+                ApplicationForRegistration: '101',
+                ApplicationForRenewalOfNameRegistration: '102',
+                ApplicationForUseOfIndistinguishableName2: '103',
+                ApplicationForWithdrawal: '104',
+                ArticlesOfAmendment_ForeignRegistration: '105',
+                ArticlesOfAmendmentToApplicationForAuthority: '106',
+                CancelForeignRegistration: '107',
+                CancellationOfRegisteredForeignCorporationName: '108',
+                ForeignStateAmendment: '109',
+                RegistrationOfForeignCorporationName: '110',
+                Reservation2: '1',
+                Reservation3CopyOf2: '113',
+                reservation4CopyOf2: '114',
+                AllStepWorkflow: '115',
+                RegistrationFee: '47',
+                AbandonmentofConversion: '1',
+                AbandonmentofDomestication: '2',
+                AbandonmentofMerger: '3',
+                AbandonmentofShareExchange: '4',
+                AdministrativeDissolution: '5',
+                Amendment: '6',
+                ArticlesofMutualBankConversion: '18',
+                AssumedName: '19',
+                AssumedNameCancellation: '12455',
+                BusinessEntityReport: '21',
+                BusinessSummary: '22',
+                Cancellation: '23',
+                CertificateofDissolution: '26',
+                CertificateofExistence: '2085',
+                CertificateofFact: '28',
+                CertifiedCopiesRequest: '30',
+                CharterSurrender_Conversion: '33',
+                CharterSurrender_Domestication: '34',
+                Consolidation: '35',
+                Conversion: '106565',
+                Correction: '106566',
+                Dissolution: '36',
+                Domestication: '40',
+                DueandDiligentSearch: '4133',
+                Formation: '42',
+                JudicialDissolution: '43',
+                Merger_90: '477777',
+                Miscellaneous: '2087',
+                NameCancellation: '50',
+                NameRenewal: '51',
+                NameReservation: '52',
+                NameTransfer: '53',
+                NoticeofMerger_30: '54',
+                PlainCopyRequest: '55',
+                Preclearance: '56',
+                RAChange: '57',
+                RAResignation: '59',
+                Reconstitution: '60',
+                Reincorporation: '61',
+                Reinstatement: '48',
+                Reentry: '46',
+                Reorganization: '159',
+                Resolution: '64',
+                ArticlesofDissolution: '19',
+                Restatement: '27',
+                Restatement_Amendments: '66',
+                Revocation: '67',
+                RevocationofDissolution: '68',
+                ShareExchange: '69',
+                SurrenderofCertificateofIncorporation: '70',
+                Withdrawal: '71',
+                CertOfExistanceLongForm: '10005',
+                BusinessSearch: '10006',
+                Dissolution: '36',
+                ForeignConversion: '37',
+                ForeignMerger: '38',
+                ServiceAuthorityWithdrawal: '59',
+                ServiceAuthorityTermination: '58',
+                ArticlesOfShareExchange: '29',
+                PublicServiceAuthorityAmendment: '44',
+                PublicServiceAuthorityJoinder: '40',
+                AmendedAppforRegasForeignBusinessTrust: '2',
+                FictitiousNameCertificate: '1068',
+                FictitiousNameRelease: '1069',
+                AmendmentToPartnershipStatement: '3',
+                StatementofAmendmentofRegisteredLLP: '60',
+                ArticlesofIncorporationSurrender: '23',
+                ArticlesofOrganizationSurrender: '26',
+                StatementOfDissolution: '54',
+                StatementOfRegistration: '56',
+                StatementofCancellationofaStatementofRegistration: '2156',
+                StatementofCancellationofRegistration: '2208',
+                AppforanAmendedCertofAuthority: '9',
+                CertificateOfAmendmentOfCertificateOfLimitedPartnership: '33',
+                StatementofResignationofRegisteredAgent: '57',
+                StatementofAmendmentofRegLLP: '60',
+                GarnishmentDesignation: '39',
+                FApplicationforcertificateofwithdrawal: '10',
+                LLPRestoration: '2139',
+                ArticlesofCancellation: '17',
+                CancellationofPartnershipStatement: '32',
+                ApplicationforaCertificateofCancellation: '7',
+                CertificateofCancellation: '34',
+                StatementofDissociation: '53',
+                StatementOfMerger: '2232',
+                StatementOfProtectedSeriesDesignation: '2235',
+                ApplicationforCertificateofRegistrationasaForeignProtectedSeries: '2236',
+                AmendedApplicationForeignProtectedSeries: '2248',
+                StatementOfDesignationCancellation: '2247',
+                CancellationForeignProtectedSeries: '2251',
+                ArticlesOfRatification: '2262',
+            },
+
+            BusinessTypes: {
+                RegistrationFee: '1027',
+                FictitiousName: '1028',
+                NameReservation: '1022',
+                StockCorporation: '1',
+                NonStockCorporation: '2',
+                DomesticGeneralPartnership: '5',
+                ForignGeneralPartnership: '6',
+                DomesticLimitedPartnership: '9',
+                ForeignLimitedPartnership: '10',
+                DomesticLimitedLiabilityCompany: '7',
+                ForeignLimitedLiabilityCompany: '8',
+                ProtectedSeries: '1047',
+                ForeignProtectedSeries: '1048',
+            },
+            enumSelectedNAICCodes: {
+                WaterSewer: '84',
+                CommunityDevelopment: '85',
+                WirelessServiceBroadband: '86',
+                ElectricAuthorities: '87',
+            },
+
+            Actions: {
+                Save: 'Save',
+                Update: 'Update',
+                Delete: 'Delete',
+                Success: 'Success',
+                Error: 'Error',
+                Exception: 'Exception',
+                Next: "Next",
+                Warning: "Warning",
+                Duplicate: "Duplicate",
+            },
+            Weekdays: {
+                Sunday: 1,
+                Monday: 2,
+                Tuesday: 3,
+                Wednesday: 4,
+                Thursday: 5,
+                Friday: 6,
+                Saturday: 7
+            },
+            enumSearchMethod: {
+                StartsWith: '2',
+                Contains: '7',
+                ExactMatch: '3'
+            },
+            filingCategory: {
+                Business: '1',
+                UCC: '2',
+
+            },
+        };
+        return { config: config, enums: enums }
+    }();
+</script>
+
+        </section>
+    </div>
+    <!-- Main Footer -->
+    
+
+    
+
+
+    <footer class="footer-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="foot-container">
+                        <a href="https://www.scc.virginia.gov/web-policy/" rel="noopener noreferrer" target="_blank" style="border-right: 1px solid #ddd; padding-right: 1rem;">Privacy Policy</a>
+                        <a href="https://www.scc.virginia.gov/businesses/" rel="noopener noreferrer" target="_blank" style="padding-left: 1rem;">Contact Us</a>
+                        <a href="https://www.facebook.com/VirginiaStateCorporationCommission" rel="noopener noreferrer" target="_blank" style="padding-left: 1rem;"><img src="/Themes/VA/Images/facebook.png" width="32" height="30" alt="Facebook Icon"></a>
+                        <a href="https://twitter.com/VAStateCorpComm" rel="noopener noreferrer" target="_blank" style="padding-left: 0.5rem;"><img src="/Themes/VA/Images/twitter.png" width="32" height="30" alt="Twitter Icon"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script type="text/javascript">
+/*<![CDATA[*/
+(function() {
+if('SCC'=='SCC')
+{
+	var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+	sz.src = '//siteimproveanalytics.com/js/siteanalyze_86027.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+	}
+})();
+/*]]>*/
+    </script>
+
+</body>
+</html>
+
+<script>
+
+    $(document).ready(function () {        
+        var details = localStorage.getItem("zoomLevel");
+        if (details) {
+            details = JSON.parse(details);
+            updateSize(details?.zoomLevel, details?.btn);
+        }
+    });
+     
+    function updateSize(zoomLevel, btnId) {        
+        // Set Zooming on document root       
+        document.body.style.zoom = zoomLevel;     
+
+        // Update UI state
+        document.querySelectorAll('.resize-btn').forEach(el => el.classList.remove('active'));
+        //btn.classList.add('active');
+        $("#" + btnId).addClass('active');
+
+        //store the zoom level
+        localStorage.setItem("zoomLevel", JSON.stringify({ zoomLevel: zoomLevel, btn: btnId }));
+
+    }
+</script>
+<script>
+
+    var errMsg = JSON.parse('null');
+    //Initializes Javascript validation library
+    $(function () {
+
+        $a.ant();
+        $.ajaxSetup({
+            headers: {
+                '__RequestVerificationToken': $('[name=__RequestVerificationToken]').val()
+            }
+        });
+        document.addEventListener("keypress", function (event) {
+            //if (event.keyCode > 9000) {
+            //    event.preventDefault();
+
+            //}
+            if (event.target.tagName === "INPUT" && event.target.type === "password") {
+                // Get the ID of the textbox
+                const textboxId = event.target.id;
+
+                // Example: Restrict certain keys for a specific textbox
+                if (textboxId === "txtPassword") {
+                    const allowedCharacters = /[a-zA-Z0-9~`^{}\[\]\\\-!@#$%^&*()_+=|:;"'<>,.?/\\]/;
+                    if (!allowedCharacters.test(event.key)) {
+                        event.preventDefault(); // Block disallowed characters
+                        console.log("Blocked key: ", event.key);
+                    }
+                }
+            }
+            else {
+              var sValue = event.key;
+              var pattern = /^[A-Za-z0-9 \.\,\:\;\'\?\/\!\#\$\%\&\*\-\_\*\=\+\(\)]*$/;
+              if (pattern.test(sValue) || event.keyCode == 64) {
+               }
+               else {
+                      event.preventDefault();
+                    }
+             }
+
+        });
+
+
+        document.addEventListener("input", function (e) {
+            if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+                if (event.target.type === "password") {
+                    const textboxId = event.target.id;
+
+                    // Example: Restrict certain keys for a specific textbox
+                    if (textboxId === "txtPassword") {
+                        const allowedCharacters = /[a-zA-Z0-9~`^{}\[\]\\\-!@#$%^&*()_+=|:;"'<>,.?/\\]/;
+                        if (!allowedCharacters.test(event.key)) {
+                            event.preventDefault(); // Block disallowed characters
+                            console.log("Blocked key: ", event.key);
+                        }
+                    }
+                }
+                else {
+                    var inputValue = e.target.value;
+                    inputValue = straightenQuotes(inputValue);
+                    const allowedCharacters = /^[a-zA-Z0-9~`!@#$%&*() _+=|:;',.?\/-]*$/;
+                    if (!allowedCharacters.test(inputValue)) {
+                        event.preventDefault(); // Block disallowed characters
+                        //sweet alert
+                        if (inputValue)
+                            swal("", 'You have selected one or more invalid characters. Only characters found in the English language and that appear on a standard QWERTY keyboard may be used.', "warning");
+                        e.target.value = "";
+                        return false;
+                    }
+                    else {
+                        ///* Removing period if not preceeded by letter or followed by letter */
+                        //if (e.target.tagName === "INPUT") {
+                        //    if (/\s+\.+\s*$/.test(inputValue))
+                        //        inputValue = inputValue.replace(/(?:\s+\.+|\.+\s+)+$/, '');
+                        //}
+
+                        e.target.value = inputValue;
+                    }
+                }
+            }
+        });
+
+
+    });
+
+    /* Removing period if not preceeded by letter or followed by letter */
+    $('input').on("focusout", function (e) {
+        var inputValue = e.target.value;
+        if (e.target.tagName === "INPUT") {
+            if (/\s+\.+\s*$/.test(inputValue))
+                inputValue = inputValue.replace(/(?:\s+\.+|\.+\s+)+$/, '');
+
+            e.target.value = inputValue;
+        }
+    });
+
+
+    //below function is to straighten the curly quotes when we do from IOS
+    function straightenQuotes(text) {
+        return text
+            .replace(/[\u2018\u2019\u201A\u201B\u2032\u02BC]/g, "'")
+            .replace(/[\u201C\u201D\u201E\u201F]/g, '"');
+    }
+
+    function accessibilityIssueFixes() {
+        if ($(".g-recaptcha-response")) {
+            $(".g-recaptcha-response").attr("aria-label", "Re captcha");
+        }
+
+        if ($(".ui-dialog-titlebar-close")) {
+            $(".ui-dialog-titlebar-close").addClass("emptyHidden").text("Close");
+        }
+
+        if ($(".sa-input-error") && $(".sa-input-error").parent()
+            && $(".sa-input-error").parent().find("input")
+            && $(".sa-input-error").parent().find("input").length > 0) {
+
+            $($(".sa-input-error").parent().find("input")[0]).attr("aria-label", "Error");
+        }
+
+        if ($("div.sweet-alert") && $("div.sweet-alert").find("h2") && $("div.sweet-alert").find("h2").length > 0) {
+            $($("div.sweet-alert").find("h2")[0]).addClass("emptyHidden").html("header");
+        }
+
+        if ($("div.sweet-alert") && $("div.sweet-alert").find("p") && $("div.sweet-alert").find("p").length > 0) {
+            $($("div.sweet-alert").find("p")[0]).css("color", "#545454");
+        }
+
+        if ($("div.sweet-alert") && $("div.sweet-alert").find("div.sa-error-container")
+            && $("div.sweet-alert").find("div.sa-error-container").find("p") && $("div.sweet-alert").find("div.sa-error-container").find("p").length > 0) {
+            $($("div.sweet-alert").find("div.sa-error-container").find("p")[0]).css("color", "#4D4D4D");
+        }
+
+        if ($("div.sweet-alert") && $("div.sweet-alert").find("div.sa-error-container")
+            && $("div.sweet-alert").find("div.sa-error-container").find("div.icon") && $("div.sweet-alert").find("div.sa-error-container").find("div.icon").length > 0) {
+            $($("div.sweet-alert").find("div.sa-error-container").find("div.icon")[0]).css("color", "#0F0F0F");
+        }
+        if ($("div.sweet-alert") && $("div.sweet-alert").find("div.sa-confirm-button-container")
+            && $("div.sweet-alert").find("div.sa-confirm-button-container").find("button") && $("div.sweet-alert").find("div.sa-confirm-button-container").find("button").length > 0) {
+            $($("div.sweet-alert").find("div.sa-confirm-button-container").find("button")[0]).css("color", "#363636");
+        }
+
+        if ($("#pagination-digg") && $("#pagination-digg").find("li.previous-off")) {
+            if ($("#pagination-digg").find("li.previous-off").length > 0)
+                $($("#pagination-digg").find("li.previous-off")[0]).css("color", "#545454 !important;");
+            if ($("#pagination-digg").find("li.previous-off").length > 1)
+                $($("#pagination-digg").find("li.previous-off")[1]).css("color", "#545454 !important;");
+        }
+
+        if ($("#pagination-digg") && $("#pagination-digg").find("li.next-off")) {
+            if ($("#pagination-digg").find("li.next-off").length > 0)
+                $($("#pagination-digg").find("li.next-off")[0]).css("color", "#545454 !important;");
+            if ($("#pagination-digg").find("li.next-off").length > 1)
+                $($("#pagination-digg").find("li.next-off")[1]).css("color", "#545454 !important;");
+        }
+
+       
+    }
+
+    function accessibilityIssueFixes_navbar() {
+        if ($("div.navbar-header") && $("div.navbar-header").find("button") && $("div.navbar-header").find("button").length > 0) {
+            $($("div.navbar-header").find("button")[0]).addClass("emptyHidden").append("header");
+        }
+    }
+</script>
+

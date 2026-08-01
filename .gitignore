@@ -1,0 +1,6 @@
+.DS_Store
+.cursor/
+**/node_modules/
+**/.browser-profile/
+*.debug.html
+*.network.json

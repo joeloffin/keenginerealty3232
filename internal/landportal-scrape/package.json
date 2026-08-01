@@ -1,0 +1,13 @@
+{
+  "name": "landportal-scrape",
+  "private": true,
+  "type": "module",
+  "description": "Page through a Land Portal Saved List and save land owner/seller parcel rows to CSV (no paid export).",
+  "scripts": {
+    "scrape": "node scrape-list.mjs",
+    "postinstall": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.54.2"
+  }
+}
