@@ -277,7 +277,7 @@ a {
   position: absolute;
   left: 0;
   bottom: -0.4rem;
-  width: 100%;
+  width: min(100%, 7.5rem);
   height: 2px;
   background: var(--gold);
   transform: scaleX(0);
@@ -851,17 +851,17 @@ a {
   font-weight: 600;
 }
 
-/* —— Scroll reveals —— */
-.reveal {
+/* —— Scroll reveals (progressive: only hide when JS is active) —— */
+.js .reveal {
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(1.15rem);
   transition:
     opacity 0.85s var(--ease),
     transform 0.85s var(--ease);
   transition-delay: var(--delay, 0ms);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -875,7 +875,7 @@ a {
     animation: none;
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;

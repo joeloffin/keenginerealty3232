@@ -3,42 +3,66 @@
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  /* Fade / slide-up reveals */
+  document.documentElement.classList.add("js");
+
   const reveals = document.querySelectorAll("[data-reveal]");
   const titles = document.querySelectorAll("[data-title]");
+
+  const markVisible = (el) => el.classList.add("is-visible");
+  const markDrawn = (el) => el.classList.add("is-drawn");
+
+  const alreadyInView = (el, ratio = 0.92) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight * ratio && rect.bottom > 0;
+  };
 
   if (!reduceMotion && "IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
+          markVisible(entry.target);
           revealObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
     );
 
-    reveals.forEach((el) => revealObserver.observe(el));
+    reveals.forEach((el) => {
+      if (alreadyInView(el)) markVisible(el);
+      else revealObserver.observe(el);
+    });
 
     const titleObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-drawn");
+          markDrawn(entry.target);
           titleObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.55 }
+      { threshold: 0.35 }
     );
 
-    titles.forEach((el) => titleObserver.observe(el));
+    titles.forEach((el) => {
+      if (alreadyInView(el, 0.85)) markDrawn(el);
+      else titleObserver.observe(el);
+    });
+
+    /* Safety net: never leave content invisible after load */
+    window.setTimeout(() => {
+      reveals.forEach((el) => {
+        if (!el.classList.contains("is-visible")) markVisible(el);
+      });
+      titles.forEach((el) => {
+        if (!el.classList.contains("is-drawn")) markDrawn(el);
+      });
+    }, 2500);
   } else {
-    reveals.forEach((el) => el.classList.add("is-visible"));
-    titles.forEach((el) => el.classList.add("is-drawn"));
+    reveals.forEach(markVisible);
+    titles.forEach(markDrawn);
   }
 
-  /* Subtle hero parallax */
   const heroImage = document.querySelector(".hero-image");
   if (!heroImage || reduceMotion) return;
 
