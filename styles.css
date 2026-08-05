@@ -11,7 +11,7 @@
   --font-body: "Figtree", "Helvetica Neue", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --space: clamp(1.25rem, 4vw, 3rem);
-  --max: 64rem;
+  --max: 70rem;
 }
 
 *,
@@ -61,25 +61,26 @@ a {
   padding: 0.85rem var(--space);
   background: linear-gradient(
     180deg,
-    rgba(12, 12, 12, 0.55) 0%,
+    rgba(12, 12, 12, 0.7) 0%,
     rgba(12, 12, 12, 0) 100%
   );
 }
 
 .site-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
-  gap: clamp(1rem, 2.5vw, 1.75rem);
+  gap: clamp(0.85rem, 2vw, 1.75rem);
   color: var(--white);
 }
 
 .site-nav a {
-  font-size: 0.84rem;
+  font-size: clamp(0.72rem, 1.5vw, 0.84rem);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   opacity: 0.88;
+  white-space: nowrap;
   transition: opacity 0.25s var(--ease);
 }
 
@@ -93,8 +94,8 @@ a {
   position: relative;
   min-height: 100svh;
   display: grid;
-  align-items: end;
-  padding: clamp(5.5rem, 12vh, 7.5rem) var(--space) clamp(2.75rem, 8vh, 4.75rem);
+  align-items: center;
+  padding: clamp(5.5rem, 12vh, 7.5rem) var(--space) clamp(3rem, 8vh, 4.5rem);
   color: var(--white);
   overflow: hidden;
 }
@@ -107,9 +108,9 @@ a {
 
 .hero-image {
   width: 100%;
-  height: 120%;
+  height: 115%;
   object-fit: cover;
-  object-position: center 28%;
+  object-position: 62% 30%;
   will-change: transform;
 }
 
@@ -118,47 +119,57 @@ a {
   inset: 0;
   background:
     linear-gradient(
-      180deg,
-      rgba(12, 12, 12, 0.35) 0%,
-      rgba(12, 12, 12, 0.18) 40%,
-      rgba(12, 12, 12, 0.78) 100%
+      105deg,
+      rgba(8, 8, 8, 0.82) 0%,
+      rgba(8, 8, 8, 0.62) 34%,
+      rgba(8, 8, 8, 0.28) 62%,
+      rgba(8, 8, 8, 0.45) 100%
     ),
-    linear-gradient(90deg, rgba(12, 12, 12, 0.4) 0%, transparent 58%);
+    linear-gradient(
+      180deg,
+      rgba(8, 8, 8, 0.45) 0%,
+      transparent 38%,
+      rgba(8, 8, 8, 0.72) 100%
+    );
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: min(42rem, 100%);
+  max-width: min(36rem, 100%);
   animation: hero-rise 1.1s var(--ease) both;
 }
 
 .hero-logo {
   display: block;
-  width: clamp(16rem, 52vw, 26rem);
+  width: clamp(12.5rem, 38vw, 18.5rem);
   max-width: 100%;
   height: auto;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.35rem;
   object-fit: contain;
   object-position: left center;
+  filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.35));
 }
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.6vw, 2.35rem);
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
   font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.9rem;
-  max-width: 24ch;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.95rem;
+  max-width: 16ch;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
 }
 
 .lede {
   margin: 0 0 1.75rem;
-  font-weight: 400;
-  font-size: 1.08rem;
-  max-width: 34ch;
-  color: rgba(250, 250, 250, 0.9);
+  font-weight: 500;
+  font-size: clamp(1.02rem, 2vw, 1.12rem);
+  max-width: 36ch;
+  line-height: 1.55;
+  color: rgba(250, 250, 250, 0.92);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
 }
 
 .cta-group {
@@ -237,7 +248,7 @@ a {
 }
 
 .section-header {
-  max-width: 40rem;
+  max-width: 48rem;
 }
 
 .eyebrow {
@@ -282,7 +293,7 @@ a {
   margin: 1.35rem 0 0;
   color: var(--ink-soft);
   font-size: 1.08rem;
-  max-width: 52ch;
+  max-width: 62ch;
   line-height: 1.7;
 }
 
@@ -292,7 +303,7 @@ a {
 
 /* —— Proof strip —— */
 .proof {
-  padding: clamp(2.75rem, 6vw, 3.75rem) var(--space);
+  padding: clamp(2.5rem, 5vw, 3.25rem) var(--space);
   background: var(--ink);
   color: var(--white);
 }
@@ -300,45 +311,48 @@ a {
 .proof-grid {
   display: grid;
   gap: clamp(1.75rem, 4vw, 2.5rem);
+  align-items: start;
 }
 
 @media (min-width: 720px) {
   .proof-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
   }
 }
 
 .proof-item {
-  padding-top: 0.35rem;
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
 }
 
 .proof-value {
-  margin: 0 0 0.65rem;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  min-height: 3.5rem;
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 6.5vw, 4rem);
+  font-size: clamp(2.5rem, 5.5vw, 3.5rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   color: var(--gold);
-  line-height: 0.95;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 
 .proof-value-text {
-  font-size: clamp(2.35rem, 5.2vw, 3.35rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  text-transform: uppercase;
+  font-size: clamp(2.35rem, 5vw, 3.25rem);
+  letter-spacing: -0.025em;
 }
 
 .proof-label {
   margin: 0;
-  font-size: 1.02rem;
-  line-height: 1.45;
+  font-size: 0.98rem;
+  line-height: 1.5;
   font-weight: 500;
-  color: rgba(250, 250, 250, 0.82);
-  max-width: 28ch;
+  color: rgba(250, 250, 250, 0.8);
+  max-width: none;
 }
 
 /* —— About —— */
@@ -881,6 +895,22 @@ a {
 
 @media (max-width: 560px) {
   .site-nav {
-    gap: 0.85rem;
+    gap: 0.65rem;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .cta-group .btn {
+    width: 100%;
   }
 }
