@@ -302,6 +302,25 @@ a {
   color: rgba(250, 250, 250, 0.72);
 }
 
+.team-copy {
+  margin: 1.35rem 0 0;
+  display: grid;
+  gap: 1rem;
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.team-copy p {
+  margin: 0;
+}
+
+.team-copy strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* —— Proof strip —— */
 .proof {
   padding: clamp(2.5rem, 5vw, 3.25rem) var(--space);
