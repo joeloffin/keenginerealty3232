@@ -316,11 +316,6 @@ a {
   margin: 0;
 }
 
-.team-copy strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
 /* —— Proof strip —— */
 .proof {
   padding: clamp(2.5rem, 5vw, 3.25rem) var(--space);
