@@ -669,26 +669,34 @@ a {
 /* —— Team —— */
 .team-grid {
   margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  margin-inline: auto;
   display: grid;
-  gap: clamp(1.5rem, 3.5vw, 2rem);
-  max-width: 54rem;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  justify-content: center;
+  justify-items: center;
+  max-width: 40rem;
 }
 
 @media (min-width: 720px) {
   .team-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 8.5rem));
   }
 }
 
 .team-card {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .team-photo {
   overflow: hidden;
   background: var(--paper-deep);
   aspect-ratio: 1;
-  max-width: 16rem;
+  width: clamp(5.75rem, 18vw, 7.25rem);
 }
 
 .team-photo img {
